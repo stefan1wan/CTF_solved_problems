@@ -1,0 +1,22 @@
+--- libgcc/config.host.orig	2014-03-28 00:40:31.000000000 +0900
++++ libgcc/config.host	2014-11-08 12:15:06.000000000 +0900
+@@ -349,6 +349,9 @@
+ 	extra_parts="$extra_parts vms-dwarf2.o vms-dwarf2eh.o"
+ 	md_unwind_header=alpha/vms-unwind.h
+ 	;;
++alpha*-*-elf*)
++	tmake_file="${tmake_file} alpha/t-alpha alpha/t-ieee t-crtfm"
++	;;
+ arc*-*-elf*)
+ 	tmake_file="arc/t-arc-newlib arc/t-arc"
+ 	extra_parts="crti.o crtn.o crtend.o crtbegin.o crtendS.o crtbeginS.o libgmon.a crtg.o crtgend.o"
+@@ -396,6 +399,9 @@
+ 	tmake_file="$tmake_file t-softfp-sfdf t-softfp-excl arm/t-softfp t-softfp"
+ 	unwind_header=config/arm/unwind-arm.h
+ 	;;
++arm*-*-elf)
++	tmake_file="$tmake_file arm/t-arm arm/t-elf"
++	;;
+ avr-*-rtems*)
+ 	tmake_file="$tmake_file avr/t-avr avr/t-rtems t-fpbit"
+ 	tm_file="$tm_file avr/avr-lib.h"

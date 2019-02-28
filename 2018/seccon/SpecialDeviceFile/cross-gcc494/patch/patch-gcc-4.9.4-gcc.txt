@@ -1,0 +1,41 @@
+--- gcc/config.gcc.orig	2016-03-14 19:03:12.000000000 +0900
++++ gcc/config.gcc	2017-05-17 19:47:22.554271000 +0900
+@@ -267,7 +267,6 @@
+ 	;;
+    arm*-wince-pe*			\
+  | arm*-*-ecos-elf			\
+- | arm*-*-elf				\
+  | arm*-*-freebsd*			\
+  | arm*-*-linux*			\
+  | arm*-*-uclinux*			\
+@@ -960,6 +959,10 @@
+ 	tm_file="${tm_file} vms/vms.h alpha/vms.h"
+ 	tmake_file="${tmake_file} alpha/t-vms"
+ 	;;
++alpha*-*-elf*)
++	tm_file="elfos.h newlib-stdint.h ${tm_file} alpha/elf.h"
++	extra_options="${extra_options} alpha/elf.opt"
++	;;
+ arc*-*-elf*)
+ 	extra_headers="arc-simd.h"
+ 	tm_file="dbxelf.h elfos.h newlib-stdint.h ${tm_file}"
+@@ -1072,6 +1075,10 @@
+ 	esac
+ 	tm_file="${tm_file} arm/aout.h vxworks-dummy.h arm/arm.h"
+ 	;;
++arm*-*-elf)
++	tm_file="dbxelf.h elfos.h newlib-stdint.h arm/elf.h arm/aout.h ${tm_file}"
++	tmake_file="${tmake_file} arm/t-arm arm/t-arm-elf"
++	;;
+ avr-*-rtems*)
+ 	tm_file="elfos.h avr/elf.h avr/avr-arch.h avr/avr.h dbxelf.h avr/rtems.h rtems.h newlib-stdint.h"
+ 	tmake_file="${tmake_file} avr/t-avr avr/t-multilib avr/t-rtems"
+@@ -1114,7 +1121,7 @@
+ 	use_gcc_stdint=wrap
+ 	;;
+ cr16-*-elf)
+-        tm_file="elfos.h ${tm_file}"
++        tm_file="elfos.h newlib-stdint.h ${tm_file}"
+         tmake_file="${tmake_file} cr16/t-cr16 "
+         use_collect2=no
+         ;;

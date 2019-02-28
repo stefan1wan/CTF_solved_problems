@@ -1,0 +1,65 @@
+--- gcc/config/moxie/moxie.md.orig	2014-04-05 04:46:07.000000000 +0900
++++ gcc/config/moxie/moxie.md	2017-05-09 22:40:49.084176000 +0900
+@@ -50,7 +50,7 @@
+   "@
+   inc    %0, %2
+   dec	 %0, -%2
+-  add.l  %0, %2")
++  add    %0, %2")
+ 
+ (define_insn "subsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r,r")
+@@ -60,7 +60,7 @@
+   ""
+   "@
+   dec    %0, %2
+-  sub.l  %0, %2")
++  sub    %0, %2")
+ 
+ (define_insn "mulsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r")
+@@ -68,7 +68,7 @@
+ 	   (match_operand:SI 1 "register_operand" "0")
+ 	   (match_operand:SI 2 "register_operand" "r")))]
+   ""
+-  "mul.l  %0, %2")
++  "mul    %0, %2")
+ 
+ (define_insn "divsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r")
+@@ -76,7 +76,7 @@
+ 	   (match_operand:SI 1 "register_operand" "0")
+ 	   (match_operand:SI 2 "register_operand" "r")))]
+   ""
+-  "div.l  %0, %2")
++  "div    %0, %2")
+ 
+ (define_insn "udivsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r")
+@@ -84,7 +84,7 @@
+ 	   (match_operand:SI 1 "register_operand" "0")
+ 	   (match_operand:SI 2 "register_operand" "r")))]
+   ""
+-  "udiv.l %0, %2")
++  "udiv   %0, %2")
+ 
+ (define_insn "modsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r")
+@@ -92,7 +92,7 @@
+ 	   (match_operand:SI 1 "register_operand" "0")
+ 	   (match_operand:SI 2 "register_operand" "r")))]
+   ""
+-  "mod.l  %0, %2")
++  "mod    %0, %2")
+ 
+ (define_insn "umodsi3"
+   [(set (match_operand:SI 0 "register_operand" "=r")
+@@ -100,7 +100,7 @@
+ 	   (match_operand:SI 1 "register_operand" "0")
+ 	   (match_operand:SI 2 "register_operand" "r")))]
+   ""
+-  "umod.l %0, %2")
++  "umod   %0, %2")
+ 
+ ;; -------------------------------------------------------------------------
+ ;; Unary arithmetic instructions

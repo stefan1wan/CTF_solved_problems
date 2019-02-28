@@ -1,0 +1,11 @@
+--- libgloss/arm/cpu-init/Makefile.in.orig	2013-10-15 00:15:12.000000000 +0900
++++ libgloss/arm/cpu-init/Makefile.in	2014-11-12 19:54:37.000000000 +0900
+@@ -80,7 +80,7 @@
+ install-info:
+ clean-info:
+ 
+-Makefile: Makefile.in ../config.status @host_makefile_frag_path@
++Makefile: Makefile.in ../config.status ../@host_makefile_frag_path@
+ 	$(SHELL) ../config.status --file cpu-init/Makefile
+ 
+ ../config.status: ../configure

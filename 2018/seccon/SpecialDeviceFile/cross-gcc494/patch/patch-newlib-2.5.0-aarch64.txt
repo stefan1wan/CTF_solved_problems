@@ -1,0 +1,18 @@
+--- newlib/libc/stdio/vfwprintf.c.orig	2016-12-23 11:33:54.000000000 +0900
++++ newlib/libc/stdio/vfwprintf.c	2017-07-10 21:30:54.000000000 +0900
+@@ -452,9 +452,15 @@
+ 	 * below longer.
+ 	 */
+ #define	PADSIZE	16		/* pad chunk size */
++#ifndef __aarch64__
+ 	static _CONST wchar_t blanks[PADSIZE] =
+ 	 {L' ',L' ',L' ',L' ',L' ',L' ',L' ',L' ',
+ 	  L' ',L' ',L' ',L' ',L' ',L' ',L' ',L' '};
++#else /* To avoid error on 32bit host. Why? */
++	static wchar_t blanks[PADSIZE] =
++	 {L' ',L' ',L' ',L' ',L' ',L' ',L' ',L' ',
++	  L' ',L' ',L' ',L' ',L' ',L' ',L' ',L' '};
++#endif
+ 	static _CONST wchar_t zeroes[PADSIZE] =
+ 	 {L'0',L'0',L'0',L'0',L'0',L'0',L'0',L'0',
+ 	  L'0',L'0',L'0',L'0',L'0',L'0',L'0',L'0'};

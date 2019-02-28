@@ -1,0 +1,46 @@
+Gadgets information
+============================================================
+0x000000000040016c : add byte ptr [rax], al ; call 0x400139
+0x0000000000400155 : add eax, 0xec8348f4 ; and byte ptr [rax - 0x39], cl ; ret 0x100
+0x00000000004001c4 : add ecx, dword ptr [rcx] ; ret
+0x00000000004001a7 : add ecx, dword ptr [rsi] ; ret
+0x0000000000400224 : add esp, 0x20 ; ret
+0x00000000004001c3 : add rcx, qword ptr [rcx] ; ret
+0x00000000004001a6 : add rcx, qword ptr [rsi] ; ret
+0x0000000000400223 : add rsp, 0x20 ; ret
+0x000000000040015a : and byte ptr [rax - 0x39], cl ; ret 0x100
+0x00000000004001be : and ecx, dword ptr [rax - 0x42] ; push 0x903485e ; ret
+0x000000000040016e : call 0x400137
+0x0000000000400135 : cmp eax, 0xfffff001 ; jae 0x400154 ; ret
+0x0000000000400134 : cmp rax, -0xfff ; jae 0x400155 ; ret
+0x0000000000400172 : dec dword ptr [rax - 0x39] ; ret 0xb
+0x0000000000400159 : in al, dx ; and byte ptr [rax - 0x39], cl ; ret 0x100
+0x000000000040013a : jae 0x40014f ; ret
+0x0000000000400199 : loope 0x400173 ; syscall ; ret
+0x00000000004001b8 : mov cl, 0x5f ; mov rbx, qword ptr [rdx] ; ret
+0x0000000000400102 : mov dl, 0x6a ; ret 0x45bc
+0x0000000000400100 : mov dl, 0x75 ; mov dl, 0x6a ; ret 0x45bc
+0x00000000004001bb : mov ebx, dword ptr [rdx] ; ret
+0x0000000000400222 : mov ecx, 0x20c48348 ; ret
+0x0000000000400198 : mov ecx, 0x50fd3e1 ; ret
+0x00000000004001b6 : mov edi, 0x485fb115 ; mov ebx, dword ptr [rdx] ; ret
+0x00000000004001a2 : mov edx, 0x485a3796 ; add ecx, dword ptr [rsi] ; ret
+0x00000000004001ba : mov rbx, qword ptr [rdx] ; ret
+0x00000000004001b9 : pop rdi ; mov rbx, qword ptr [rdx] ; ret
+0x00000000004001a5 : pop rdx ; add rcx, qword ptr [rsi] ; ret
+0x00000000004001c2 : pop rsi ; add rcx, qword ptr [rcx] ; ret
+0x00000000004001c1 : push 0x903485e ; ret
+0x0000000000400139 : push qword ptr [rbx + 0x11] ; ret
+0x0000000000400149 : push qword ptr [rbx + 1] ; ret
+0x0000000000400221 : push rsi ; mov ecx, 0x20c48348 ; ret
+0x000000000040013c : ret
+0x000000000040015d : ret 0x100
+0x000000000040010e : ret 0x16
+0x0000000000400104 : ret 0x45bc
+0x0000000000400109 : ret 0xa013
+0x0000000000400175 : ret 0xb
+0x0000000000400196 : sbb dword ptr [rax - 0x47], ecx ; loope 0x400176 ; syscall ; ret
+0x0000000000400195 : sbb dword ptr es:[rax - 0x47], ecx ; loope 0x400177 ; syscall ; ret
+0x000000000040019b : syscall ; ret
+
+Unique gadgets found: 42

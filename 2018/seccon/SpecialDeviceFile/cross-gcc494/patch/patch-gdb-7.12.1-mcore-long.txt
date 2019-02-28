@@ -1,0 +1,12 @@
+--- sim/mcore/interp.c.orig	2017-01-21 22:46:47.000000000 +0900
++++ sim/mcore/interp.c	2017-07-28 23:18:24.000000000 +0900
+@@ -34,6 +34,9 @@
+ #include "sim-syscall.h"
+ #include "sim-options.h"
+ 
++/* To avoid a malfunction of bt instruction on 64bit host. */
++#define long int
++
+ #define target_big_endian (CURRENT_TARGET_BYTE_ORDER == BIG_ENDIAN)
+ 
+ 

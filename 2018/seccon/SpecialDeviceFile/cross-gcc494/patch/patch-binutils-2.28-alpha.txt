@@ -1,0 +1,10 @@
+--- ld/configure.tgt.orig	2017-03-02 17:23:54.000000000 +0900
++++ ld/configure.tgt	2017-05-01 18:36:46.435127000 +0900
+@@ -75,6 +75,7 @@
+ alpha*-*-netware*)	targ_emul=alpha ;;
+ alpha*-*-netbsd*)	targ_emul=elf64alpha_nbsd ;;
+ alpha*-*-openbsd*)	targ_emul=elf64alpha ;;
++alpha*-*-elf*)		targ_emul=elf64alpha ;;
+ alpha*-*-*vms*)		targ_emul=alphavms
+ 			;;
+ arc*-*-elf*)		targ_emul=arcelf

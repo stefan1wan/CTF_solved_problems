@@ -1,0 +1,18 @@
+--- sim/erc32/exec.c.orig	2017-01-21 22:46:47.000000000 +0900
++++ sim/erc32/exec.c	2017-07-29 00:25:45.000000000 +0900
+@@ -17,9 +17,14 @@
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+ 
+ #include "config.h"
+-#include "sis.h"
+ #include <math.h>
+ #include <stdio.h>
++/*
++ * To avoid difference of struct pstate on GNU/Linux environment.
++ * sis.h see define of BIG_ENDIAN for struct pstate.
++ */
++#include <stdlib.h>
++#include "sis.h"
+ 
+ extern int32    sis_verbose, sparclite;
+ int ext_irl = 0;

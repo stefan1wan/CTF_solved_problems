@@ -1,0 +1,13 @@
+info.txt
+
+:Author: vam
+:Email: jpwan21@gmail.com
+:Date: 2018-11-07 21:08
+
+binary description
+
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE

@@ -1,0 +1,78 @@
+
+chall:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000400080 <.text>:
+  400080:	eb 50                	jmp    0x4000d2
+  400082:	48 31 c0             	xor    %rax,%rax
+  400085:	fe c0                	inc    %al
+  400087:	48 31 ff             	xor    %rdi,%rdi
+  40008a:	48 ff c7             	inc    %rdi
+  40008d:	5e                   	pop    %rsi
+  40008e:	b2 2e                	mov    $0x2e,%dl
+  400090:	0f 05                	syscall 
+  400092:	2c 2e                	sub    $0x2e,%al
+  400094:	ff cf                	dec    %edi
+  400096:	0f 05                	syscall 
+  400098:	48 0f b6 7e 01       	movzbq 0x1(%rsi),%rdi
+  40009d:	48 31 3e             	xor    %rdi,(%rsi)
+  4000a0:	48 ff c6             	inc    %rsi
+  4000a3:	48 ff ca             	dec    %rdx
+  4000a6:	75 f0                	jne    0x400098
+  4000a8:	83 e1 2e             	and    $0x2e,%ecx
+  4000ab:	80 c1 26             	add    $0x26,%cl
+  4000ae:	48 8d 7e 07          	lea    0x7(%rsi),%rdi
+  4000b2:	48 8d 77 cb          	lea    -0x35(%rdi),%rsi
+  4000b6:	f3 a6                	repz cmpsb %es:(%rdi),%ds:(%rsi)
+  4000b8:	48 85 c9             	test   %rcx,%rcx
+  4000bb:	75 49                	jne    0x400106
+  4000bd:	34 2f                	xor    $0x2f,%al
+  4000bf:	68 59 61 79 21       	pushq  $0x21796159
+  4000c4:	48 89 e6             	mov    %rsp,%rsi
+  4000c7:	b2 04                	mov    $0x4,%dl
+  4000c9:	bf 01 00 00 00       	mov    $0x1,%edi
+  4000ce:	0f 05                	syscall 
+  4000d0:	eb 34                	jmp    0x400106
+  4000d2:	e8 ab ff ff ff       	callq  0x400082
+  4000d7:	57                   	push   %rdi
+  4000d8:	65 6c                	gs insb (%dx),%es:(%rdi)
+  4000da:	63 6f 6d             	movslq 0x6d(%rdi),%ebp
+  4000dd:	65 20 74 6f 20       	and    %dh,%gs:0x20(%rdi,%rbp,2)
+  4000e2:	74 68                	je     0x40014c
+  4000e4:	69 73 20 43 68 61 6c 	imul   $0x6c616843,0x20(%rbx),%esi
+  4000eb:	6c                   	insb   (%dx),%es:(%rdi)
+  4000ec:	21 20                	and    %esp,(%rax)
+  4000ee:	0a 45 6e             	or     0x6e(%rbp),%al
+  4000f1:	74 65                	je     0x400158
+  4000f3:	72 20                	jb     0x400115
+  4000f5:	74 68                	je     0x40015f
+  4000f7:	65 20 4b 65          	and    %cl,%gs:0x65(%rbx)
+  4000fb:	79 20                	jns    0x40011d
+  4000fd:	74 6f                	je     0x40016e
+  4000ff:	20 77 69             	and    %dh,0x69(%rdi)
+  400102:	6e                   	outsb  %ds:(%rsi),(%dx)
+  400103:	3a 20                	cmp    (%rax),%ah
+  400105:	00 31                	add    %dh,(%rcx)
+  400107:	c0                   	(bad)  
+  400108:	b0 3c                	mov    $0x3c,%al
+  40010a:	0f 05                	syscall 
+  40010c:	0a 0d 06 1c 22 38    	or     0x38221c06(%rip),%cl        # 0x38621d18
+  400112:	18 26                	sbb    %ah,(%rsi)
+  400114:	36 0f 39             	ss (bad) 
+  400117:	2b 1c 59             	sub    (%rcx,%rbx,2),%ebx
+  40011a:	42 2c 36             	rex.X sub $0x36,%al
+  40011d:	1a 2c 26             	sbb    (%rsi,%riz,1),%ch
+  400120:	1c 17                	sbb    $0x17,%al
+  400122:	2d 39 57 43 01       	sub    $0x1435739,%eax
+  400127:	07                   	(bad)  
+  400128:	2b 38                	sub    (%rax),%edi
+  40012a:	09 07                	or     %eax,(%rdi)
+  40012c:	1a 01                	sbb    (%rcx),%al
+  40012e:	17                   	(bad)  
+  40012f:	13 13                	adc    (%rbx),%edx
+  400131:	17                   	(bad)  
+  400132:	2d 39 0a 0d 06       	sub    $0x60d0a39,%eax
+  400137:	46 5c                	rex.RX pop %rsp
+  400139:	7d                   	.byte 0x7d

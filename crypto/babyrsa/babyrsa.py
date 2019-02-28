@@ -1,0 +1,64 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2018 vam <jpwan21@gmail.com>
+#
+# Distributed under terms of the MIT license.
+
+"""
+
+"""
+import gmpy2
+from pwn import *
+
+r = remote("pwn.sixstars.team", 30010)
+
+n= 21818737053296397075293557532026838317341224187973089076458415733610636552780808013315098765758243125184126227736024523676184317498035798411220546725192587095253703700420371338854565378916932253260533992881852510211375850037764645482694880990745957675572041753649938924321719396285647152490552827989035013470195700891098198243597017164296587041439272673787807948736013519011632547587627615851576933645554961670362822942324210754429071964986174075713939209663296457332027579945780917276248109965088308211931588984536106210445392359893387940224965056661904376650783808042603209084485261072752684555682439933912054084001L
+
+a = 'abcd'
+for i in range(256):
+    w = r.recv()
+    print w
+    r.sendline(a)
+    print i
+
+#r.interactive()
+
+r.recvuntil("last byte:")
+r.sendline("0000")
+r1 = r.recvuntil("L").strip()
+print "r1===="
+print r1
+
+
+r.recvuntil("last byte:")
+r.sendline("0001")
+r2 = r.recvuntil("L").strip()
+print "r2===="
+print r2
+
+r.recvuntil("last byte:")
+r.sendline("0002")
+r3 = r.recvuntil("L").strip()
+print "r3==="
+print r3
+
+r1 = int(r1[2:-1], 16)
+print r1
+r2 = int(r2[2:-1], 16)
+r3 = int(r3[2:-1], 16)
+
+r11 = (256*256*256*r1)%n
+c1 = (r2+n-1-r11)%n
+c2 = (r3+n-r11-8)%n
+c = (c2+n-((c1*2)%n))%n
+
+
+
+inv = modinv(6*256,n)
+print hex(inv)
+a =  hex(inv*c%n)
+flag = unhex(a[2:-1])
+print flag
+
